@@ -8,7 +8,7 @@
 只要实现了IBaseArticleLayout和IBaseCommentLayout接口将这两个View放到ArticleDetailsViewGroup容器中可以自定义其他的上下切换的控件
 
 #####使用方法
-MainActivity.java
+MainActivity.java<br>
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
-activity_main.xml
+activity_main.xml<br>
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
