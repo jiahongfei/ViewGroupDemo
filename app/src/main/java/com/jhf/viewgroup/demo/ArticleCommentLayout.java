@@ -4,10 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.groupviewrolling.ArticleDetailsViewGroup;
 import com.groupviewrolling.IBaseCommentLayout;
 
 import java.util.ArrayList;
@@ -29,10 +32,12 @@ public class ArticleCommentLayout extends LinearLayout implements
 
 	private List<String> mArticleComments = new ArrayList<String>();
 
+	private ArticleDetailsViewGroup articleDetailsViewGroup;
 
-	public ArticleCommentLayout(Context context) {
+	public ArticleCommentLayout(Context context, ArticleDetailsViewGroup articleDetailsViewGroup) {
 		super(context);
 		mContext = context;
+		this.articleDetailsViewGroup = articleDetailsViewGroup;
 		afterViews();
 	}
 
@@ -48,6 +53,15 @@ public class ArticleCommentLayout extends LinearLayout implements
 		mPullToRefreshListView.setOverScrollMode(View.OVER_SCROLL_NEVER);
 		mArticleAdapter = new ArticleAdapter();
 		mPullToRefreshListView.setAdapter(mArticleAdapter);
+		mPullToRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				if(articleDetailsViewGroup.isScrollerFinished()){
+					return ;
+				}
+				Toast.makeText(mContext, "position : " + position, Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 
 	@Override

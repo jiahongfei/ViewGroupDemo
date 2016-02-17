@@ -7,6 +7,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
+import com.groupviewrolling.ArticleDetailsViewGroup;
 import com.groupviewrolling.IBaseArticleLayout;
 
 /**
@@ -25,7 +26,7 @@ public class ArticleDetailsLayout extends LinearLayout implements IBaseArticleLa
 	private ArticleDetailWebView mArticleDetailWebView;
 	private ViewGroup mArticleDetailsLayout;
 
-	public ArticleDetailsLayout(Context context) {
+	public ArticleDetailsLayout(Context context, ArticleDetailsViewGroup articleDetailsViewGroup) {
 		super(context);
 		mContext = context;
 		LayoutInflater.from(mContext).inflate(

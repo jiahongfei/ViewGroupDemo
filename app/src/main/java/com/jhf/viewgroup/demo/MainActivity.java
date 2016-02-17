@@ -12,10 +12,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArticleDetailsLayout articleDetailsLayout = new ArticleDetailsLayout(this);
-        ArticleCommentLayout articleCommentLayout = new ArticleCommentLayout(this);
-
         ArticleDetailsViewGroup articleDetailsViewGroup = (ArticleDetailsViewGroup)findViewById(R.id.articleDetailsViewGroup);
+
+        ArticleDetailsLayout articleDetailsLayout = new ArticleDetailsLayout(this,articleDetailsViewGroup);
+        ArticleCommentLayout articleCommentLayout = new ArticleCommentLayout(this,articleDetailsViewGroup);
 
         articleDetailsViewGroup.addArticleView(articleDetailsLayout);
         articleDetailsViewGroup.addCommentView(articleCommentLayout);
